@@ -30,3 +30,7 @@ write: 72
 Elapsed time: 359 ms
 
 This is 85,7% better performance the Functional way!
+
+Akka Actor System:
+
+Next to come -> A case scenario using Akka actor system (parallel computing)
