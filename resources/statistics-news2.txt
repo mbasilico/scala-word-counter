@@ -1,0 +1,20 @@
+
+Statistics (news2.txt , 77 KB , 612 lines)
+
+Non FP
+decision: 117
+every: 90
+willpower: 90
+going: 81
+goals: 81
+write: 72
+Elapsed time: 667 ms
+
+FP
+decision: 117
+every: 90
+willpower: 90
+going: 81
+goals: 81
+write: 72
+Elapsed time: 359 ms
