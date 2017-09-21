@@ -11,12 +11,9 @@ object LineWordCounterWorker {
     for (currentWord <- words) {
       val lowerCaseWord = currentWord.toLowerCase().replaceAll("[^\\p{L}\\p{Nd}]+", "")
       if (lowerCaseWord.length() > TOP_WORD_LEN) {
-        if (wordCount.contains(lowerCaseWord)) {
-          val currentCount = wordCount.get(lowerCaseWord).get
-          wordCount.put(lowerCaseWord, currentCount + 1)
-        } else {
-          wordCount.put(lowerCaseWord, 1)
-        }
+        var currentCount = 0
+        if (wordCount.contains(lowerCaseWord)) currentCount = wordCount.get(lowerCaseWord).get
+        wordCount.put(lowerCaseWord, currentCount + 1)
       }
     }
   }
@@ -25,10 +22,10 @@ object LineWordCounterWorker {
     val words = line.split(" ")
     words.map { _.toLowerCase().replaceAll("[^\\p{L}\\p{Nd}]+", "") }
       .filter { _.length > TOP_WORD_LEN }
-      .foreach(word =>
-        if (wordCount.contains(word)) {
-          val currentCount = wordCount.get(word).get
-          wordCount.put(word, currentCount + 1)
-        } else wordCount.put(word, 1))
+      .foreach(word => {
+        var currentCount = 0
+        if (wordCount.contains(word)) currentCount = wordCount.get(word).get
+        wordCount.put(word, currentCount + 1)
+      })
   }
 }
