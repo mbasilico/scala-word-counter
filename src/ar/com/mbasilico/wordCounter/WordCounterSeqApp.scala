@@ -16,13 +16,14 @@ object WordCounterSeqApp extends App {
 
   try {
     val t0 = System.currentTimeMillis()
-    for (line <- Source.fromResource(fileName)("UTF-8").getLines()) {
-      LineWordCounterWorker.countWordsFP(wordCounter, line)
+    for (line <- Source.fromFile(fileName)("UTF-8").getLines()) {
+      LineWordCounterWorker.countWords(wordCounter, line)
     }
     val t1 = System.currentTimeMillis()
     printTopWords(wordCounter)
     
     println("Elapsed time: " + (t1 - t0) + " ms")
+    println("FINISHED")
     
   } catch {
     case ex: Exception => ex.printStackTrace()
