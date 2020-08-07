@@ -24,6 +24,7 @@ object WordCounterSeqApp extends App {
     printTopWords(wordCounter)
     
     println("Elapsed time: " + (t1 - t0) + " ms")
+    println("FINISHED")
     
   } catch {
     case ex: Exception => ex.printStackTrace()
