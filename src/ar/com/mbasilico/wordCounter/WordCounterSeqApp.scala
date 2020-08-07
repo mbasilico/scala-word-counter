@@ -8,6 +8,7 @@ object WordCounterSeqApp extends App {
   val TOP_WORD_LIMIT = 70
 
   def printTopWords(wordCounter: HashMap[String, Int]): Unit = {
+    println("printTopWords STARTED. wordCounter: " + wordCounter)
     wordCounter.toList.filter{_._2  > TOP_WORD_LIMIT}.sortWith{_._2 > _._2}.foreach(tuple => println(tuple._1 + ": " + tuple._2))
   }
 
@@ -23,7 +24,6 @@ object WordCounterSeqApp extends App {
     printTopWords(wordCounter)
     
     println("Elapsed time: " + (t1 - t0) + " ms")
-    println("TERMINO !!")
     
   } catch {
     case ex: Exception => ex.printStackTrace()
